@@ -48,14 +48,14 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build . --file Dockerfile --tag image
+        run: docker build . --file Dockerfile --tag noticeboard
 
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login --username myap --password ${{ secrets.DockerHub }}
 
       - name: Push image
         run: |
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+          IMAGE_ID=myap/noticeboard
 
           # Strip git ref prefix from version
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
