@@ -55,7 +55,7 @@ jobs:
 
       - name: Push image
         run: |
-          IMAGE_ID=hub.docker..com/unyap90/noticeboard/
+          IMAGE_ID=hub.docker.com/unyap90/noticeboard/
 
           # Strip git ref prefix from version
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
